@@ -11,6 +11,15 @@ on:
   push:
     branches: ["main"]
 
+  pull_request:
+    types:
+      - closed
+
+# github webhook events
+  check_run:
+    types: [rerequested, requested_action]
+
+  # external webhook  
   repository_dispatch:
     types: [open, deleted]
 
@@ -61,8 +70,9 @@ jobs:
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
+        # Deployment job
   deploy:
+    if: github.event.pull_request.merged == true
     environment:
       name: job github-pages
       url: ${{ steps.deployment.outputs.page_url }}
