@@ -49,6 +49,8 @@ concurrency:
 jobs:
   # Build job
   build:
+    environment:
+      name: staging
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
