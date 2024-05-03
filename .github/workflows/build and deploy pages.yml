@@ -76,15 +76,7 @@ jobs:
 #          name: github-pages
  #         retention-days: 10
 #          path: _site/
-      - name: Write Badge
-        uses: action-badges/core@0.3.0
-        with:
-          file-name: yaml-example.svg
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-          badge-branch: main
-          label: example
-          message: yaml
-          message-color: blue
+
         # Deployment job
   deploy:
     if: github.event.pull_request.merged == true
