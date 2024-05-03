@@ -8,8 +8,8 @@ name: Deploy Jekyll site to Pages
 
 on:
   # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+#  push:
+#    branches: ["main"]
 
   pull_request:
     types:
@@ -17,12 +17,12 @@ on:
       - open
 
 # github webhook events
-  check_run:
-    types: [rerequested, requested_action]
+#  check_run:
+#    types: [rerequested, requested_action]
 
   # external webhook  
-  repository_dispatch:
-    types: [open, deleted]
+#  repository_dispatch:
+#    types: [open, deleted]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
